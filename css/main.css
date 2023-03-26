@@ -32,6 +32,7 @@
    100% { background-position: -275px 100%; }
 }
 
+/*
 @-webkit-keyframes animBird {
    from { background-position: 0px 0px; }
    to { background-position: 0px -96px; }
@@ -47,8 +48,24 @@
 @keyframes animBird {
    from { background-position: 0px 0px; }
    to { background-position: 0px -96px; }
-}
+}*/
 
+@-webkit-keyframes animBird {
+   from { background-position: 0px 0px; }
+   to { background-position: 0px -108px; }
+}
+@-moz-keyframes animBird {
+   from { background-position: 0px 0px; }
+   to { background-position: 0px -108px; }
+}
+@-o-keyframes animBird {
+   from { background-position: 0px 0px; }
+   to { background-position: 0px -108px; }
+}
+@keyframes animBird {
+   from { background-position: 0px 0px; }
+   to { background-position: 0px -108px; }
+}*/
 @-webkit-keyframes animPipe {
    0% { left: 900px; }
    100% { left: -100px; }
@@ -294,13 +311,17 @@ Screen - Game
 .bird
 {
    position: absolute;
-   width: 34px;
+   /*width: 34px;
    height: 24px;
+   -webkit-animation: animBird 300ms steps(4) infinite;
+   animation: animBird 300ms steps(4) infinite;*/
+   width: 33px;
+   height: 27px;
    background-image: url('../assets/bird.png');
    background-image: url('../assets/daco.png');
 
-   -webkit-animation: animBird 300ms steps(4) infinite;
-   animation: animBird 300ms steps(4) infinite;
+   -webkit-animation: animBird 500ms steps(4) infinite;
+   animation: animBird 500ms steps(4) infinite;
 }
 
 .pipe
