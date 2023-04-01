@@ -233,6 +233,7 @@ Screen - Game
    width: 188px;
    height: 170px;
    background-image: url('../assets/splash.png');
+   background-image: url('../assets/hethke_splash.png');
    background-repeat: no-repeat;
 }
 
@@ -246,6 +247,7 @@ Screen - Game
    width: 236px;
    height: 280px;
    background-image: url('../assets/scoreboard.png');
+   background-image: url('../assets/fd_scoreboard.png');
    background-repeat: no-repeat;
 
    z-index: 1000;

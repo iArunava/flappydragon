@@ -89,7 +89,17 @@ tower head
 #2d4e66
 
 
+primaryblue - #2d4e66
+primarybrown - #b7a394
+Splash
+----
+ready - hethke
+text - #2d4e66
+border - #b7a394
 
+game over - Vilajerosh oleth
+
+replay - 
 
 
 
