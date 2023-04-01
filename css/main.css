@@ -1,35 +1,35 @@
 @-webkit-keyframes animLand {
    0% { background-position: 0px 0px; }
-   100% { background-position: -335px 0px; }
+   100% { background-position: -1280px 0px; }
 }
 @-moz-keyframes animLand {
    0% { background-position: 0px 0px; }
-   100% { background-position: -335px 0px; }
+   100% { background-position: -1280px 0px; }
 }
 @-o-keyframes animLand {
    0% { background-position: 0px 0px; }
-   100% { background-position: -335px 0px; }
+   100% { background-position: -1280px 0px; }
 }
 @keyframes animLand {
    0% { background-position: 0px 0px; }
-   100% { background-position: -335px 0px; }
+   100% { background-position: -1280px 0px; }
 }
 
 @-webkit-keyframes animSky {
    0% { background-position: 0px 100%; }
-   100% { background-position: -275px 100%; }
+   100% { background-position: -800px 100%; }
 }
 @-moz-keyframes animSky {
    0% { background-position: 0px 100%; }
-   100% { background-position: -275px 100%; }
+   100% { background-position: -800px 100%; }
 }
 @-o-keyframes animSky {
    0% { background-position: 0px 100%; }
-   100% { background-position: -275px 100%; }
+   100% { background-position: -800px 100%; }
 }
 @keyframes animSky {
    0% { background-position: 0px 100%; }
-   100% { background-position: -275px 100%; }
+   100% { background-position: -800px 100%; }
 }
 
 /*
@@ -156,9 +156,11 @@ Screen - Game
    /*height: 80%;*/
    height: 90%;
    background-image: url('../assets/sky.png');
+   background-image: url('../assets/desert_bg.png');
    background-repeat: repeat-x;
    background-position: 0px 100%;
    background-color: #4ec0ca;
+   background-color: #e7e5e2;
 
    -webkit-animation: animSky 7s linear infinite;
    animation: animSky 7s linear infinite;
@@ -183,8 +185,10 @@ Screen - Game
    background-image: url('../assets/dragceiling.png');
    background-repeat: repeat-x;
 
-   -webkit-animation: animCeiling 481ms linear infinite;
-   animation: animCeiling 481ms linear infinite;
+   /*-webkit-animation: animCeiling 481ms linear infinite;
+   animation: animCeiling 481ms linear infinite;*/
+   -webkit-animation: animCeiling 276ms linear infinite;
+   animation: animCeiling 276ms linear infinite;
 }
 
 #land
@@ -193,14 +197,17 @@ Screen - Game
    bottom: 0;
    width: 100%;
    /*height: 20%;*/
-   height: 10%;
+   height: 27%;
    background-image: url('../assets/land.png');
+   background-image: url('../assets/land_mountain.png');
    background-repeat: repeat-x;
    background-position: 0px 0px;
-   background-color: #ded895;
+   /*background-color: #ded895;*/
 
-   -webkit-animation: animLand 2516ms linear infinite;
-   animation: animLand 2516ms linear infinite;
+   /*-webkit-animation: animLand 2516ms linear infinite;
+   animation: animLand 2516ms linear infinite;*/
+   -webkit-animation: animLand 5800ms linear infinite;
+   animation: animLand 5800ms linear infinite;
 }
 
 #bigscore
@@ -334,10 +341,11 @@ Screen - Game
    left: -100px;
    width: 52px;
    height: 100%;
-   z-index: 10;
+   /*z-index: 10;*/
+   z-index: 0;
 
-   -webkit-animation: animPipe 7500ms linear;
-   animation: animPipe 7500ms linear;
+   -webkit-animation: animPipe 4500ms linear;
+   animation: animPipe 4500ms linear;
 }
 
 .pipe_upper
@@ -346,6 +354,7 @@ Screen - Game
    top: 0;
    width: 52px;
    background-image: url('../assets/pipe.png');
+   background-image: url('../assets/tower.png');
    background-repeat: repeat-y;
    background-position: center;
 }
@@ -358,6 +367,7 @@ Screen - Game
    width: 52px;
    height: 26px;
    background-image: url('../assets/pipe-down.png');
+   background-image: url('../assets/tower-down.png');
 }
 
 .pipe_lower
@@ -366,6 +376,7 @@ Screen - Game
    bottom: 0;
    width: 52px;
    background-image: url('../assets/pipe.png');
+   background-image: url('../assets/tower.png');
    background-repeat: repeat-y;
    background-position: center;
 }
@@ -378,6 +389,7 @@ Screen - Game
    width: 52px;
    height: 26px;
    background-image: url('../assets/pipe-up.png');
+   background-image: url('../assets/tower-up.png');
 }
 
 #footer
