@@ -23,6 +23,7 @@ var pipewidth = 52;
 var pipes = new Array();
 
 var replayclickable = false;
+var shareclickable = false;
 
 //sounds
 var volume = 30;
@@ -398,11 +399,15 @@ function showScore()
    //show the scoreboard
    $("#scoreboard").css({ y: '40px', opacity: 0 }); //move it down so we can slide it up
    $("#replay").css({ y: '40px', opacity: 0 });
+   $("#share").css({ y: '40px', opacity: 0 });
+   $("#twitter-share-btn").css({ y: '40px', opacity: 0 });
    $("#scoreboard").transition({ y: '0px', opacity: 1}, 600, 'ease', function() {
       //When the animation is done, animate in the replay button and SWOOSH!
       soundSwoosh.stop();
       soundSwoosh.play();
       $("#replay").transition({ y: '0px', opacity: 1}, 600, 'ease');
+      $("#share").transition({ y: '0px', opacity: 1}, 600, 'ease');
+      $("#twitter-share-btn").transition({ y: '0px', opacity: 1}, 600, 'ease');
 
       //also animate in the MEDAL! WOO!
       if(wonmedal)
@@ -414,6 +419,7 @@ function showScore()
 
    //make the replay button clickable
    replayclickable = true;
+   shareclickable = true;
 }
 
 $("#replay").click(function() {
@@ -434,6 +440,32 @@ $("#replay").click(function() {
       //start the game over!
       showSplash();
    });
+});
+
+$("#share").click(function() {
+   //make sure we can only click once
+   if(!shareclickable)
+      return;
+   else
+      shareclickable = false;
+   //SWOOSH!
+   soundSwoosh.stop();
+   soundSwoosh.play();
+
+   window.open("https://twitter.com/intent/tweet?text=Hello%20world")
+});
+
+$("#twitter-share-btn").click(function() {
+   //make sure we can only click once
+   if(!shareclickable)
+      return;
+   else
+      shareclickable = false;
+   //SWOOSH!
+   soundSwoosh.stop();
+   soundSwoosh.play();
+
+   window.open("https://twitter.com/intent/tweet?text=Hello%20world")
 });
 
 function playerScore()

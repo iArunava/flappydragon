@@ -248,6 +248,7 @@ Screen - Game
    height: 280px;
    background-image: url('../assets/scoreboard.png');
    background-image: url('../assets/fd_scoreboard.png');
+   background-image: url('../assets/fd_scoreboard_2D.png');
    background-repeat: no-repeat;
 
    z-index: 1000;
@@ -297,10 +298,34 @@ Screen - Game
 {
    position: absolute;
    opacity: 0;
-   top: 205px;
-   left: 61px;
+   /*top: 205px;
+   left: 61px;*/
+   top: 260px;
+   left: 5px;
    height: 115px;
    width: 70px;
+   cursor: pointer;
+}
+
+#share
+{
+   position: absolute;
+   opacity: 0;
+   top: 260px;
+   left: 120px;
+   height: 115px;
+   width: 70px;
+   cursor: pointer;
+}
+
+#twitter-share-btn
+{
+   position: absolute;
+   opacity: 0;
+   top: 217px;
+   left: 13px;
+   height: 115px;
+   width: 35px;
    cursor: pointer;
 }
 
