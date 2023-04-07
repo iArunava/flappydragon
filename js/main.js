@@ -397,17 +397,27 @@ function showScore()
    soundSwoosh.play();
 
    //show the scoreboard
-   $("#scoreboard").css({ y: '40px', opacity: 0 }); //move it down so we can slide it up
-   $("#replay").css({ y: '40px', opacity: 0 });
-   $("#share").css({ y: '40px', opacity: 0 });
-   $("#twitter-share-btn").css({ y: '40px', opacity: 0 });
+   var scoreboard = ['scoreboard', 'replay', 'share', 'twitter-share-btn', 
+                     'facebook-share-btn', 'reddit-share-btn', 'whatsapp-share-btn', 
+                     'linkedin-share-btn']
+   for (let i=0; i < scoreboard.length; i++) {
+       $("#"+scoreboard[i]).css({ y: '40px', opacity: 0 }); //move it down so we can slide it up
+   }
+   //$("#replay").css({ y: '40px', opacity: 0 });
+   //$("#share").css({ y: '40px', opacity: 0 });
+   //$("#twitter-share-btn").css({ y: '40px', opacity: 0 });
+
    $("#scoreboard").transition({ y: '0px', opacity: 1}, 600, 'ease', function() {
       //When the animation is done, animate in the replay button and SWOOSH!
       soundSwoosh.stop();
       soundSwoosh.play();
-      $("#replay").transition({ y: '0px', opacity: 1}, 600, 'ease');
-      $("#share").transition({ y: '0px', opacity: 1}, 600, 'ease');
-      $("#twitter-share-btn").transition({ y: '0px', opacity: 1}, 600, 'ease');
+      // Starting from index 1 to skip the scoreboard itself as that is handled above
+      for (let i=1; i < scoreboard.length; i++) {
+          $("#"+scoreboard[i]).css({ y: '0px', opacity: 1 }, 600, 'ease'); 
+      }
+      //$("#replay").transition({ y: '0px', opacity: 1}, 600, 'ease');
+      //$("#share").transition({ y: '0px', opacity: 1}, 600, 'ease');
+      //$("#twitter-share-btn").transition({ y: '0px', opacity: 1}, 600, 'ease');
 
       //also animate in the MEDAL! WOO!
       if(wonmedal)
@@ -444,29 +454,64 @@ $("#replay").click(function() {
 
 $("#share").click(function() {
    //make sure we can only click once
+   /*
    if(!shareclickable)
       return;
    else
       shareclickable = false;
+   */
    //SWOOSH!
    soundSwoosh.stop();
    soundSwoosh.play();
 
-   window.open("https://twitter.com/intent/tweet?text=Hello%20world")
+   const date = Date.now().toString();
+   //day,month,year,hour,min=date.getDate(),date.getMonth(),date.FullYear(),date.Hours(),date.Minutes(),date.Seconds()
+   //date_string=
+
+   html2canvas(document.querySelector('#scoreboard'), {y:65, logging:false, height: 155}).then(function(canvas) {
+      document.body.appendChild(canvas);
+      simulateDownloadImageClick(canvas.toDataURL(), 'FlappyDragon_'+date+'.png');
+   });
+   //window.open("https://twitter.com/intent/tweet?text=Hello%20world")
 });
 
-$("#twitter-share-btn").click(function() {
+function shareBtnClick(id) {
    //make sure we can only click once
+   /*
    if(!shareclickable)
       return;
    else
       shareclickable = false;
+   */
    //SWOOSH!
    soundSwoosh.stop();
    soundSwoosh.play();
 
-   window.open("https://twitter.com/intent/tweet?text=Hello%20world")
-});
+
+   url="https://iarunava.github.io/flappybird"
+   title=spaceWith20("Flappy Dragon %2d Game Of Thrones")
+   text=spaceWith20("Had fun playing this flappy bird remake for Game of Thrones%2e Flew through " + score.toString() + " castle towers%21 Can you beat me%3f")
+
+   if (id.startsWith('twitter')) {
+       url="https://twitter.com/intent/tweet?text="+text+"%20"+url;
+   } else if (id.startsWith('reddit')) {
+       url="https://www.reddit.com/r/test/submit?title="+title+"&selftext=true&text="+text+"%20"+url;
+   } else if (id.startsWith('facebook')) {
+      url="http://www.facebook.com/sharer.php?s=100&p="+title+"&p="+text+"&p="+url;
+      //url="http://www.facebook.com/sharer.php?s=100&p=YOUR_TITLE&p=YOUR_SUMMARY&p=YOUR_URL&p[images][0]=YOUR_IMAGE_TO_SHARE_OBJECT"
+   } else if (id.startsWith('whatsapp')) {
+      url="whatsapp://send?text="+text;
+   } else if (id.startsWith('linkedin')) {
+      url="https://www.linkedin.com/sharing/share-offsite/?mini=true&url="+url+"&title="+title+"&summary="+text//+"&source={articleSource}";
+   }
+
+   window.open(url)
+
+}
+
+function spaceWith20(text) {
+    return text.replace(' ', '%20');
+}
 
 function playerScore()
 {
@@ -475,6 +520,29 @@ function playerScore()
    soundScore.stop();
    soundScore.play();
    setBigScore();
+}
+
+function simulateDownloadImageClick(uri, filename) {
+  var link = document.createElement('a');
+  if (typeof link.download !== 'string') {
+    window.open(uri);
+  } else {
+    link.href = uri;
+    link.download = filename;
+    accountForFirefox(clickLink, link);
+    //clickLink(link); #seems to be working fine
+  }
+}
+
+function clickLink(link) {
+  link.click();
+}
+
+function accountForFirefox(click) { // wrapper function
+  let link = arguments[1];
+  document.body.appendChild(link);
+  click(link);
+  document.body.removeChild(link);
 }
 
 function updatePipes()

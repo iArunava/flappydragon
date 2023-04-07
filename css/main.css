@@ -318,15 +318,65 @@ Screen - Game
    cursor: pointer;
 }
 
+#share-btn
+{
+   position: absolute;
+   opacity: 0;
+   height: 115px;
+   width: 35px;
+   cursor: pointer;
+   top: 217px;
+}
+
 #twitter-share-btn
 {
    position: absolute;
    opacity: 0;
-   top: 217px;
-   left: 13px;
-   height: 115px;
+   height: 34px;
    width: 35px;
    cursor: pointer;
+   top: 217px;
+   left: 20px;
+}
+#facebook-share-btn
+{
+   position: absolute;
+   opacity: 0;
+   height: 34px;
+   width: 35px;
+   cursor: pointer;
+   top: 217px;
+   left: 60px;
+}
+#reddit-share-btn
+{
+   position: absolute;
+   opacity: 0;
+   height: 34px;
+   width: 35px;
+   cursor: pointer;
+   top: 217px;
+   left: 100px;
+}
+#whatsapp-share-btn
+{
+   position: absolute;
+   opacity: 0;
+   height: 34px;
+   width: 35px;
+   cursor: pointer;
+   top: 217px;
+   left: 140px;
+}
+#linkedin-share-btn
+{
+   position: absolute;
+   opacity: 0;
+   height: 34px;
+   width: 35px;
+   cursor: pointer;
+   top: 217px;
+   left: 180px;
 }
 
 .boundingbox
