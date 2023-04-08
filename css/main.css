@@ -171,6 +171,11 @@ Screen - Game
    position: absolute;
    bottom: 0;
    /*height: 420px;*/
+   /* 32px  for the walls on the top 
+    * 57px for bringing the walls back to the screen cause bottom would lift it up
+   bottom: 57px;
+      height: calc(100% - 32px - 57px);
+    * */
    height: calc(100% - 32px);
    width: 100%;
 }
@@ -235,6 +240,7 @@ Screen - Game
    background-image: url('../assets/splash.png');
    background-image: url('../assets/hethke_splash.png');
    background-repeat: no-repeat;
+   margin: auto;
 }
 
 #scoreboard

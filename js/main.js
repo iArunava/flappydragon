@@ -173,7 +173,11 @@ function gameloop() {
    }
 
    //did we hit the ground?
-   if(box.bottom >= $("#land").offset().top)
+   //+57 cause the mountain land has some high peaks
+   //while flying down when the land has low peaks it would just hit 
+   //a blank area and die.
+   //so bringing down land to hit and die by 57. Played around with. Seemed like a good number.
+   if(box.bottom >= $("#land").offset().top+57)
    {
       playerDead();
       return;
@@ -210,7 +214,8 @@ function gameloop() {
    if(boxright > pipeleft)
    {
       //we're within the pipe, have we passed between upper and lower pipes?
-      if(boxtop > pipetop && boxbottom < pipebottom)
+      // +5 to add some wiggle room cause the dragon has some transparency in the background
+      if(boxtop > pipetop-5 && boxbottom < pipebottom+5)
       {
          //yeah! we're within bounds
 
@@ -488,21 +493,24 @@ function shareBtnClick(id) {
    soundSwoosh.play();
 
 
-   url="https://iarunava.github.io/flappybird"
+   homeurl="https://iarunava.github.io/flappybird"
    title=spaceWith20("Flappy Dragon %2d Game Of Thrones")
    text=spaceWith20("Had fun playing this flappy bird remake for Game of Thrones%2e Flew through " + score.toString() + " castle towers%21 Can you beat me%3f")
 
+   console.log(text)
+
    if (id.startsWith('twitter')) {
-       url="https://twitter.com/intent/tweet?text="+text+"%20"+url;
+       url="https://twitter.com/intent/tweet?text="+text+"%20"+homeurl;
    } else if (id.startsWith('reddit')) {
-       url="https://www.reddit.com/r/test/submit?title="+title+"&selftext=true&text="+text+"%20"+url;
+       url="https://www.reddit.com/r/test/submit?title="+title+"&selftext=true&text="+text+"%20"+homeurl;
    } else if (id.startsWith('facebook')) {
-      url="http://www.facebook.com/sharer.php?s=100&p="+title+"&p="+text+"&p="+url;
+      url="http://www.facebook.com/sharer.php?s=100&p="+title+"&t="+text+"&u="+homeurl;
+      url="http://www.facebook.com/dialog/feed?app_id=1037875453755138&link="+homeurl+"&description="+text+"&name="+title;
       //url="http://www.facebook.com/sharer.php?s=100&p=YOUR_TITLE&p=YOUR_SUMMARY&p=YOUR_URL&p[images][0]=YOUR_IMAGE_TO_SHARE_OBJECT"
    } else if (id.startsWith('whatsapp')) {
-      url="whatsapp://send?text="+text;
+      url="whatsapp://send?text="+title+"\n"+text+" "+homeurl;
    } else if (id.startsWith('linkedin')) {
-      url="https://www.linkedin.com/sharing/share-offsite/?mini=true&url="+url+"&title="+title+"&summary="+text//+"&source={articleSource}";
+      url="https://www.linkedin.com/sharing/share-offsite/?mini=true&url="+homeurl+"&title="+title+"&summary="+text//+"&source={articleSource}";
    }
 
    window.open(url)
@@ -510,7 +518,7 @@ function shareBtnClick(id) {
 }
 
 function spaceWith20(text) {
-    return text.replace(' ', '%20');
+    return text.replaceAll(' ', '%20');
 }
 
 function playerScore()
