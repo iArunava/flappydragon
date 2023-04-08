@@ -129,7 +129,7 @@ function startGame()
    loopGameloop = setInterval(gameloop, updaterate);
    if (!nopipes) {
      //loopPipeloop = setInterval(updatePipes, 1400);
-     loopPipeloop = setInterval(updatePipes, 1700);
+     loopPipeloop = setInterval(updatePipes, 1900);
    }
 
    //jump from the start!
