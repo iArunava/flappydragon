@@ -236,9 +236,9 @@ Screen - Game
    top: 75px;
    left: 65px;
    width: 188px;
-   height: 170px;
-   background-image: url('../assets/splash.png');
-   background-image: url('../assets/hethke_splash.png');
+   /*height: 170px;*/
+   height: 200px;
+   background-image: url('../assets/sovos_splash.png');
    background-repeat: no-repeat;
    margin: auto;
 }

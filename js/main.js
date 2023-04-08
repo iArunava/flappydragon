@@ -25,6 +25,8 @@ var pipes = new Array();
 var replayclickable = false;
 var shareclickable = false;
 
+var nopipes=false;
+
 //sounds
 var volume = 30;
 var soundJump = new buzz.sound("assets/sounds/sfx_wing.ogg");
@@ -43,6 +45,8 @@ $(document).ready(function() {
       debugmode = true;
    if(window.location.search == "?easy")
       pipeheight = 200;
+   if(window.location.search == "?nopipes")
+      nopipes=true;
 
    //get the highscore
    var savedscore = getCookie("highscore");
@@ -123,7 +127,10 @@ function startGame()
    //start up our loops
    var updaterate = 1000.0 / 60.0 ; //60 times a second
    loopGameloop = setInterval(gameloop, updaterate);
-   loopPipeloop = setInterval(updatePipes, 1400);
+   if (!nopipes) {
+     //loopPipeloop = setInterval(updatePipes, 1400);
+     loopPipeloop = setInterval(updatePipes, 1700);
+   }
 
    //jump from the start!
    playerJump();
@@ -214,8 +221,8 @@ function gameloop() {
    if(boxright > pipeleft)
    {
       //we're within the pipe, have we passed between upper and lower pipes?
-      // +5 to add some wiggle room cause the dragon has some transparency in the background
-      if(boxtop > pipetop-5 && boxbottom < pipebottom+5)
+      // +7 to add some wiggle room cause the dragon has some transparency in the background
+      if(boxtop > pipetop-7 && boxbottom < pipebottom+7)
       {
          //yeah! we're within bounds
 
