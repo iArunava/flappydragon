@@ -173,11 +173,11 @@ function gameloop() {
    }
 
    //did we hit the ground?
-   //+57 cause the mountain land has some high peaks
+   //+60 cause the mountain land has some high peaks
    //while flying down when the land has low peaks it would just hit 
    //a blank area and die.
-   //so bringing down land to hit and die by 57. Played around with. Seemed like a good number.
-   if(box.bottom >= $("#land").offset().top+57)
+   //so bringing down land to hit and die by 60. Played around with. Seemed like a good number.
+   if(box.bottom >= $("#land").offset().top+60)
    {
       playerDead();
       return;
