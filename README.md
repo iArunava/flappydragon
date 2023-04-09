@@ -24,4 +24,4 @@ Original Dragon - [ZaPaper](https://opengameart.org/users/zapaper)
 Original Game concept by Dong Nyugen.
 Code based on [nebez's floppybird](https://github.com/nebez/floppybird)
 
-If the copyright holder would like for the assets to be removed, please open an issue to start the conversation.
+All 3 assets which are modified are under CC. If any issue with copyright. Please open an issue.
