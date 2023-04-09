@@ -296,7 +296,7 @@ function setGameLoops() {
 		  loopGameloop = setInterval(gameloop, updaterate);
 		  if (!nopipes) {
 			  //loopPipeloop = setInterval(updatePipes, 1400);
-			  loopPipeloop = setInterval(updatePipes, 1900);
+			  loopPipeloop = setInterval(updatePipes, 1700);
 		  }
 }
 
