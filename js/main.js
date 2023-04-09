@@ -26,6 +26,7 @@ var replayclickable = false;
 var shareclickable = false;
 
 var nopipes=false;
+var paused=false;
 
 //sounds
 var volume = 30;
@@ -125,12 +126,13 @@ function startGame()
    }
 
    //start up our loops
-   var updaterate = 1000.0 / 60.0 ; //60 times a second
-   loopGameloop = setInterval(gameloop, updaterate);
-   if (!nopipes) {
+   //var updaterate = 1000.0 / 60.0 ; //60 times a second
+   //loopGameloop = setInterval(gameloop, updaterate);
+   //if (!nopipes) {
      //loopPipeloop = setInterval(updatePipes, 1400);
-     loopPipeloop = setInterval(updatePipes, 1900);
-   }
+     //loopPipeloop = setInterval(updatePipes, 1900);
+   //}
+   setGameLoops();
 
    //jump from the start!
    playerJump();
@@ -250,6 +252,7 @@ function gameloop() {
 //Handle space bar
 $(document).keydown(function(e){
    //space bar!
+   //console.log('Hee1', e.keyCode);
    if(e.keyCode == 32)
    {
       //in ScoreScreen, hitting space should click the "replay" button. else it's just a regular spacebar hit
@@ -257,6 +260,10 @@ $(document).keydown(function(e){
          $("#replay").click();
       else
          screenClick();
+
+   } else if(e.keyCode == 112 || e.keyCode == 80) {
+      if(currentstate != states.ScoreScreen)
+         pause();
    }
 });
 
@@ -265,6 +272,41 @@ if("ontouchstart" in window)
    $(document).on("touchstart", screenClick);
 else
    $(document).on("mousedown", screenClick);
+
+function pause() {
+    if (!paused) {
+			$(".animated").css('animation-play-state', 'paused');
+			$(".animated").css('-webkit-animation-play-state', 'paused');
+      removeGameLoops();
+    } else {
+      $(".animated").css('animation-play-state', 'running');
+      $(".animated").css('-webkit-animation-play-state', 'running');
+      setGameLoops();
+    }
+    paused=!paused;
+}
+
+function pauseAnimations() {
+		$(".animated").css('animation-play-state', 'paused');
+		$(".animated").css('-webkit-animation-play-state', 'paused');
+}
+
+function setGameLoops() {
+		  var updaterate = 1000.0 / 60.0 ; //60 times a second
+		  loopGameloop = setInterval(gameloop, updaterate);
+		  if (!nopipes) {
+			  //loopPipeloop = setInterval(updatePipes, 1400);
+			  loopPipeloop = setInterval(updatePipes, 1900);
+		  }
+}
+
+function removeGameLoops() {
+		 //destroy our gameloops
+		 clearInterval(loopGameloop);
+		 clearInterval(loopPipeloop);
+		 loopGameloop = null;
+		 loopPipeloop = null;
+}
 
 function screenClick()
 {
@@ -347,8 +389,7 @@ function setMedal()
 function playerDead()
 {
    //stop animating everything!
-   $(".animated").css('animation-play-state', 'paused');
-   $(".animated").css('-webkit-animation-play-state', 'paused');
+   pauseAnimations();
 
    //drop the bird to the floor
    var playerbottom = $("#player").position().top + $("#player").width(); //we use width because he'll be rotated 90 deg
@@ -360,10 +401,11 @@ function playerDead()
    currentstate = states.ScoreScreen;
 
    //destroy our gameloops
-   clearInterval(loopGameloop);
-   clearInterval(loopPipeloop);
-   loopGameloop = null;
-   loopPipeloop = null;
+   //clearInterval(loopGameloop);
+   //clearInterval(loopPipeloop);
+   //loopGameloop = null;
+   //loopPipeloop = null;
+   removeGameLoops();
 
    //mobile browsers don't support buzz bindOnce event
    if(isIncompatible.any())

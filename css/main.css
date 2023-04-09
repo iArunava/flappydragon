@@ -138,6 +138,13 @@ body
    min-height: 525px;
 }
 
+
+.pauseAnimations {
+    animation-play-state: paused;
+}
+
+
+
 /*
 Screen - Game
 */
