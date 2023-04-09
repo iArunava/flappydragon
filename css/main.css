@@ -280,7 +280,7 @@ Screen - Game
 #currentscore
 {
    position: absolute;
-   top: 105px;
+   top: 165px;
    left: 107px;
    width: 104px;
    height: 14px;
@@ -295,7 +295,7 @@ Screen - Game
 #highscore
 {
    position: absolute;
-   top: 147px;
+   top: 210px;
    left: 107px;
    width: 104px;
    height: 14px;
@@ -313,7 +313,7 @@ Screen - Game
    opacity: 0;
    /*top: 205px;
    left: 61px;*/
-   top: 260px;
+   top: 294px;
    left: 5px;
    height: 115px;
    width: 70px;
@@ -324,7 +324,7 @@ Screen - Game
 {
    position: absolute;
    opacity: 0;
-   top: 260px;
+   top: 294px;
    left: 120px;
    height: 115px;
    width: 70px;
@@ -348,7 +348,7 @@ Screen - Game
    height: 34px;
    width: 35px;
    cursor: pointer;
-   top: 217px;
+   top: 254px;
    left: 20px;
 }
 #facebook-share-btn
@@ -358,7 +358,7 @@ Screen - Game
    height: 34px;
    width: 35px;
    cursor: pointer;
-   top: 217px;
+   top: 254px;
    left: 60px;
 }
 #reddit-share-btn
@@ -368,7 +368,7 @@ Screen - Game
    height: 34px;
    width: 35px;
    cursor: pointer;
-   top: 217px;
+   top: 254px;
    left: 100px;
 }
 #whatsapp-share-btn
@@ -378,7 +378,7 @@ Screen - Game
    height: 34px;
    width: 35px;
    cursor: pointer;
-   top: 217px;
+   top: 254px;
    left: 140px;
 }
 #linkedin-share-btn
@@ -388,7 +388,7 @@ Screen - Game
    height: 34px;
    width: 35px;
    cursor: pointer;
-   top: 217px;
+   top: 254px;
    left: 180px;
 }
 

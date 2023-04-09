@@ -522,7 +522,7 @@ $("#share").click(function() {
    //day,month,year,hour,min=date.getDate(),date.getMonth(),date.FullYear(),date.Hours(),date.Minutes(),date.Seconds()
    //date_string=
 
-   html2canvas(document.querySelector('#scoreboard'), {y:65, logging:false, height: 155}).then(function(canvas) {
+   html2canvas(document.querySelector('#scoreboard'), {y:0, logging:false, height: 255}).then(function(canvas) {
       document.body.appendChild(canvas);
       simulateDownloadImageClick(canvas.toDataURL(), 'FlappyDragon_'+date+'.png');
    });
