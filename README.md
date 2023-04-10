@@ -18,10 +18,10 @@ The heavy redesign that has gone in the game is on the assets.
 
 A large part of the assets have been drawn by me. And a few taken from opensource art. and then modified for the theme.
 
-Original Land - [Quantiset](https://opengameart.org/users/quantiset)
+Original Land - [Quantiset](https://opengameart.org/users/quantiset) <br/>
 Background - [PWL](https://opengameart.org/users/pwl)
-Original Dragon - [ZaPaper](https://opengameart.org/users/zapaper)
-Original Game concept by Dong Nyugen.
-Code based on [nebez's floppybird](https://github.com/nebez/floppybird)
+Original Dragon - [ZaPaper](https://opengameart.org/users/zapaper) <br/>
+Original Game concept by Dong Nyugen. <br/>
+Code based on [nebez's floppybird](https://github.com/nebez/floppybird) <br/>
 
 All 3 assets which are modified are under CC. If any issue with copyright. Please open an issue.
